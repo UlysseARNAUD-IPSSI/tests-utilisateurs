@@ -16,19 +16,19 @@ class UtilisateurValidator {
         const {email, nom, prenom, age} = params;
 
         if (undefined === email) {
-            throw new InvalidArgumentsError('email');
+            throw InvalidArgumentsError.singleton('email');
         }
 
         if (undefined === nom) {
-            throw new InvalidArgumentsError('nom');
+            throw InvalidArgumentsError.singleton('nom');
         }
 
         if (undefined === prenom) {
-            throw new InvalidArgumentsError('prenom');
+            throw InvalidArgumentsError.singleton('prenom');
         }
 
         if (undefined === age) {
-            throw new InvalidArgumentsError('age');
+            throw InvalidArgumentsError.singleton('age');
         }
 
         const conditions = {
