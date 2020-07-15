@@ -58,7 +58,7 @@ class UtilisateurValidator {
         if (_conditionsValues.includes(false)) {
             for (let cursor in errors) {
                 const error = errors[cursor];
-                if (errors.hasOwnProperty('singleton')) {
+                if (error.hasOwnProperty('singleton')) {
                     this.errors.push(error.singleton());
                 }
             }
