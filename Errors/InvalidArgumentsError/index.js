@@ -9,15 +9,15 @@ class InvalidArgumentsError extends Error {
      * Singleton
      * @returns {InvalidArgumentsError}
      */
-    static singleton() {
-        return new this;
+    static singleton(argument) {
+        return new this(argument);
     }
 
     /**
      * @constructor
      * @param params
      */
-    constructor(...params) {
+    constructor(argument, ...params) {
         super(...params);
 
         if (Error.captureStackTrace) {
@@ -33,7 +33,7 @@ class InvalidArgumentsError extends Error {
          * Message de l'erreur
          * @type {string}
          */
-        this.message = 'Arguments invalides.';
+        this.message = 'Argument "' + argument + '" invalide.';
 
         /**
          * Date où l'erreur a été encourue
