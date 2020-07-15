@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+    node:
+        image: 'node:latest'
+        working_dir: /home/node/app
+        command:
+            - /bin/sh
+            - '-c'
+            - 'npm install --only=dev && npm test'
+        ports:
+            - '3000:3000'
+        volumes:
+            - './:/home/node/app'
