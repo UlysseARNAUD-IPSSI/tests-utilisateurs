@@ -5,8 +5,20 @@ const InvalidPrenomError = require('../../Errors/InvalidPrenomError');
 const InvalidAgeError = require('../../Errors/InvalidAgeError');
 const UtilisateurValidatorError = require('../../Errors/UtilisateurValidatorError');
 
+/**
+ * @class UtilisateurValidator
+ */
 class UtilisateurValidator {
 
+
+    /**
+     * @constructor
+     * @param params
+     * @param params.email {string}
+     * @param params.nom {string} Nom
+     * @param params.prenom {string} Prenom
+     * @param params.age
+     */
     constructor(...params) {
 
         this.isValid = false;
@@ -46,7 +58,9 @@ class UtilisateurValidator {
         if (_conditionsValues.includes(false)) {
             for (let cursor in errors) {
                 const error = errors[cursor];
-                this.errors.push(error);
+                if (errors.hasOwnProperty('singleton')) {
+                    this.errors.push(error.singleton());
+                }
             }
             throw new UtilisateurValidatorError.singleton(this.errors);
         }

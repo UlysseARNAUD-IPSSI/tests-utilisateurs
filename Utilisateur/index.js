@@ -9,6 +9,10 @@ class Utilisateur {
     /**
      * @constructor
      * @param params
+     * @param params.email
+     * @param params.nom
+     * @param params.prenom
+     * @param params.age
      */
     constructor(...params) {
 
@@ -17,7 +21,12 @@ class Utilisateur {
             throw new UtilisateurValidatorError(validator.errors);
         }
 
-        const {email, nom, prenom, age} = params;
+        const {
+            email,
+            nom,
+            prenom,
+            age
+        } = params;
 
         /**
          * Adresse mail
