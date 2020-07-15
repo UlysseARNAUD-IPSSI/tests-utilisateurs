@@ -4,15 +4,32 @@ const InvalidEmailError = require('../../Errors/InvalidEmailError');
 const InvalidNomError = require('../../Errors/InvalidNomError');
 const InvalidPrenomError = require('../../Errors/InvalidPrenomError');
 const InvalidAgeError = require('../../Errors/InvalidAgeError');
+const UtilisateurValidatorError = require('../../Errors/UtilisateurValidatorError');
 
 class UtilisateurValidator {
 
     constructor(...params) {
 
-        const {email, nom, prenom, age} = params;
-
         this.isValid = false;
         this.errors = [];
+
+        const {email, nom, prenom, age} = params;
+
+        if (undefined === email) {
+            throw new InvalidArgumentsError('email');
+        }
+
+        if (undefined === nom) {
+            throw new InvalidArgumentsError('nom');
+        }
+
+        if (undefined === prenom) {
+            throw new InvalidArgumentsError('prenom');
+        }
+
+        if (undefined === age) {
+            throw new InvalidArgumentsError('age');
+        }
 
         const conditions = {
             'email': function (email) {
@@ -48,7 +65,7 @@ class UtilisateurValidator {
                 const error = errors[cursor];
                 this.errors.push(error);
             }
-            return;
+            throw new UtilisateurValidatorError.singleton(this.errors);
         }
 
         this.isValid = true;
