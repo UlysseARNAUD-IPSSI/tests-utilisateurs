@@ -20,7 +20,7 @@ class InvalidEmailError extends Error {
     constructor(...params) {
         super(...params);
 
-        if(Error.captureStackTrace) {
+        if (Error.captureStackTrace) {
             Error.captureStackTrace(this, InvalidEmailError);
         }
         /**
@@ -42,4 +42,5 @@ class InvalidEmailError extends Error {
         this.date = new Date();
     }
 }
+
 module.exports = InvalidEmailError;

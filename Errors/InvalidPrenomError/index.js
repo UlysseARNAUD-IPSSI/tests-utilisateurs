@@ -20,7 +20,7 @@ class InvalidPrenomError extends Error {
     constructor(...params) {
         super(...params);
 
-        if(Error.captureStackTrace) {
+        if (Error.captureStackTrace) {
             Error.captureStackTrace(this, InvalidPrenomError);
         }
         /**
@@ -42,4 +42,5 @@ class InvalidPrenomError extends Error {
         this.date = new Date();
     }
 }
+
 module.exports = InvalidPrenomError;

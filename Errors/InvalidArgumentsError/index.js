@@ -20,7 +20,7 @@ class InvalidArgumentsError extends Error {
     constructor(...params) {
         super(...params);
 
-        if(Error.captureStackTrace) {
+        if (Error.captureStackTrace) {
             Error.captureStackTrace(this, InvalidArgumentsError);
         }
         /**
@@ -42,4 +42,5 @@ class InvalidArgumentsError extends Error {
         this.date = new Date();
     }
 }
+
 module.exports = InvalidArgumentsError;

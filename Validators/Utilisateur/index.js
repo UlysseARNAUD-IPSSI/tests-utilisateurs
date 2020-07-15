@@ -75,11 +75,11 @@ class UtilisateurValidator {
         return siMinimumValide && siMaximumValide;
     }
 
-    get isValid () {
+    get isValid() {
         return this.isValid;
     }
 
-    set isValid (value) {
+    set isValid(value) {
         if ([true, false].includes(value)) {
             this.isValid = value;
         }

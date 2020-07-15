@@ -20,7 +20,7 @@ class UtilisateurValidatorError extends Error {
     constructor(errors = [], ...params) {
         super(...params);
 
-        if(Error.captureStackTrace) {
+        if (Error.captureStackTrace) {
             Error.captureStackTrace(this, UtilisateurValidatorError);
         }
         /**
@@ -40,7 +40,7 @@ class UtilisateurValidatorError extends Error {
             cursor++
         ) {
             const error = errors[cursor];
-            this.message = this.message  + "\n" + error.message;
+            this.message = this.message + "\n" + error.message;
         }
 
         /**
@@ -50,4 +50,5 @@ class UtilisateurValidatorError extends Error {
         this.date = new Date();
     }
 }
+
 module.exports = UtilisateurValidatorError;

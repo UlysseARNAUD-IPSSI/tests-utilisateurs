@@ -20,7 +20,7 @@ class InvalidNomError extends Error {
     constructor(...params) {
         super(...params);
 
-        if(Error.captureStackTrace) {
+        if (Error.captureStackTrace) {
             Error.captureStackTrace(this, InvalidNomError);
         }
         /**
@@ -42,4 +42,5 @@ class InvalidNomError extends Error {
         this.date = new Date();
     }
 }
+
 module.exports = InvalidNomError;
