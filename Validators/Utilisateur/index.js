@@ -1,5 +1,4 @@
 const Utilisateur = require('../../Utilisateur');
-const InvalidArgumentsError = require('../../Errors/InvalidArgumentsError');
 const InvalidEmailError = require('../../Errors/InvalidEmailError');
 const InvalidNomError = require('../../Errors/InvalidNomError');
 const InvalidPrenomError = require('../../Errors/InvalidPrenomError');
