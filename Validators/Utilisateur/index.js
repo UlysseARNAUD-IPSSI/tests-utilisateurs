@@ -15,22 +15,6 @@ class UtilisateurValidator {
 
         const {email, nom, prenom, age} = params;
 
-        if (undefined === email) {
-            throw InvalidArgumentsError.singleton('email');
-        }
-
-        if (undefined === nom) {
-            throw InvalidArgumentsError.singleton('nom');
-        }
-
-        if (undefined === prenom) {
-            throw InvalidArgumentsError.singleton('prenom');
-        }
-
-        if (undefined === age) {
-            throw InvalidArgumentsError.singleton('age');
-        }
-
         const conditions = {
             'email': function (email) {
                 return UtilisateurValidator.siPasVide(email)
