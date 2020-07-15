@@ -9,8 +9,8 @@ class UtilisateurValidatorError extends Error {
      * Singleton
      * @returns {UtilisateurValidatorError}
      */
-    static singleton() {
-        return new this;
+    static singleton(errors) {
+        return new this(errors);
     }
 
     /**
