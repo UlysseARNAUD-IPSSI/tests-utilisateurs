@@ -9,7 +9,6 @@ const UtilisateurValidatorError = require('../../Errors/UtilisateurValidatorErro
  */
 class UtilisateurValidator {
 
-
     /**
      * @constructor
      * @param params
@@ -61,7 +60,7 @@ class UtilisateurValidator {
                     this.errors.push(error.singleton());
                 }
             }
-            throw new UtilisateurValidatorError.singleton(this.errors);
+            throw UtilisateurValidatorError.singleton(this.errors);
         }
 
         this.isValid = true;
@@ -73,7 +72,7 @@ class UtilisateurValidator {
     }
 
     static siEmailValide(valeur) {
-        const expression = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const expression = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
         const verification = expression.test(valeur);
         return true === verification;
     }
@@ -89,13 +88,15 @@ class UtilisateurValidator {
     }
 
     get isValid() {
-        return this.isValid;
+        return this._isValid;
     }
 
     set isValid(value) {
         if ([true, false].includes(value)) {
-            this.isValid = value;
+            this._isValid = value;
         }
     }
 
 }
+
+module.exports = UtilisateurValidator;

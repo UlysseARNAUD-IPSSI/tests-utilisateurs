@@ -16,10 +16,16 @@ class Utilisateur {
      */
     constructor(params) {
 
-        const validator = new UtilisateurValidator(params);
-        if (false === validator.isValid) {
-            throw new UtilisateurValidatorError(validator.errors);
+        let validator;
+
+        try {
+            validator = new UtilisateurValidator(params);
         }
+        catch (error) {
+            throw error;
+        }
+
+        this.validator = validator;
 
         const {
             email,
