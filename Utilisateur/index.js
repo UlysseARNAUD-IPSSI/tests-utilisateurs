@@ -14,7 +14,7 @@ class Utilisateur {
      * @param params.prenom
      * @param params.age
      */
-    constructor(...params) {
+    constructor(params) {
 
         const validator = new UtilisateurValidator(params);
         if (false === validator.isValid) {
