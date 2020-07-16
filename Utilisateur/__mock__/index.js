@@ -1,4 +1,3 @@
-
 const mockUtilisateur = jest.fn();
 const mock = jest.fn().mockImplementation(function() {
     return {
