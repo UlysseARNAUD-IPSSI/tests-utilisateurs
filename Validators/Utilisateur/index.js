@@ -41,7 +41,7 @@ class UtilisateurValidator {
             }(prenom),
             'age': function (age) {
                 return UtilisateurValidator.siPasVide(age)
-                    && 0 < age;
+                    && 13 <= age;
             }(age)
         };
 
