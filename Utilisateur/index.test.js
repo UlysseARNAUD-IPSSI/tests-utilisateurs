@@ -19,7 +19,7 @@ it(`Vérifie si l'utilisateur et son validateur a été appelé une fois`, funct
 });
 
 it(`Vérifie si un utilisateur est créé avec de bons paramètres`, function () {
-    const utilisateur = new Utilisateur({
+    const utilisateur =  new Utilisateur({
         email: 'ulysse.arnaud@exemple.fr',
         nom: 'ARNAUD',
         prenom: 'Ulysse',
@@ -30,28 +30,36 @@ it(`Vérifie si un utilisateur est créé avec de bons paramètres`, function ()
 });
 
 it(`Vérifie si on obtient une erreur si on ne met pas d'arguments`, function () {
-    expect(() => new Utilisateur({})).toThrow(); // TODO: Ajout du type d'erreur
+   const utilisateur = new Utilisateur({});
+
+   Utilisateur.mockImplementation(() => new Utilisateur({}));
+
+   expect()
 });
 
 it(`Vérifie si on obtient une erreur si on ne défini pas le nom`, function () {
-    expect(() => new Utilisateur({
-        email: 'ulysse.arnaud@exemple.fr',
-        prenom: 'Ulysse',
-        age: 21
-    })).toThrow(); // TODO: Ajout du type d'erreur
+    expect(function () {
+        new Utilisateur({
+            email: 'ulysse.arnaud@exemple.fr',
+            prenom: 'Ulysse',
+            age: 21
+        });
+    }).toThrowError(); // TODO: Ajout du type d'erreur
 });
 
 it(`Vérifie si on obtient une erreur si on ne défini pas le prénom`, function () {
-    expect(() => new Utilisateur({
-        email: 'ulysse.arnaud@exemple.fr',
-        nom: 'ARNAUD',
-        age: 21
-    })).toThrow(); // TODO: Ajout du type d'erreur
+    expect(function () {
+        new Utilisateur({
+            email: 'ulysse.arnaud@exemple.fr',
+            nom: 'ARNAUD',
+            age: 21
+        });
+    }).toThrow(); // TODO: Ajout du type d'erreur
 });
 
 
 it(`Vérifie si on obtient une erreur si l'adresse mail n'a pas le bon format`, function () {
-    expect(() => {
+    expect(function () {
         new Utilisateur({
             email: 'ulysse.arnaud_at_exemple_dot_fr',
             prenom: 'Ulysse',
@@ -62,7 +70,7 @@ it(`Vérifie si on obtient une erreur si l'adresse mail n'a pas le bon format`, 
 });
 
 it(`Vérifie si on obtient une erreur si l'age est en dessous de 13 ans`, function () {
-    expect(() => {
+    expect(function () {
         new Utilisateur({
             email: 'ulysse.arnaud@exemple.fr',
             prenom: 'Ulysse',
@@ -71,5 +79,3 @@ it(`Vérifie si on obtient une erreur si l'age est en dessous de 13 ans`, functi
         });
     }).toThrow(); // TODO: Ajout du type d'erreur
 });
-
-

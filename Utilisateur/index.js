@@ -17,12 +17,14 @@ class Utilisateur {
      */
     constructor(params) {
 
-        try {
+        /*try {
             new UtilisateurValidator(params);
         }
         catch (error) {
             throw error;
-        }
+        }*/
+
+        new UtilisateurValidator(params);
 
         const {
             email,
