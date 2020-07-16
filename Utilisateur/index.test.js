@@ -51,21 +51,25 @@ it(`Vérifie si on obtient une erreur si on ne défini pas le prénom`, function
 
 
 it(`Vérifie si on obtient une erreur si l'adresse mail n'a pas le bon format`, function () {
-    expect(() => new Utilisateur({
-        email: 'ulysse.arnaud_at_exemple_dot_fr',
-        prenom: 'Ulysse',
-        nom: 'ARNAUD',
-        age: 21
-    })).toThrow(); // TODO: Ajout du type d'erreur
+    expect(() => {
+        new Utilisateur({
+            email: 'ulysse.arnaud_at_exemple_dot_fr',
+            prenom: 'Ulysse',
+            nom: 'ARNAUD',
+            age: 21
+        });
+    }).toThrow(); // TODO: Ajout du type d'erreur
 });
 
 it(`Vérifie si on obtient une erreur si l'age est en dessous de 13 ans`, function () {
-    expect(() => new Utilisateur({
-        email: 'ulysse.arnaud@exemple.fr',
-        prenom: 'Ulysse',
-        nom: 'ARNAUD',
-        age: 7
-    })).toThrow(); // TODO: Ajout du type d'erreur
+    expect(() => {
+        new Utilisateur({
+            email: 'ulysse.arnaud@exemple.fr',
+            prenom: 'Ulysse',
+            nom: 'ARNAUD',
+            age: 7
+        });
+    }).toThrow(); // TODO: Ajout du type d'erreur
 });
 
 

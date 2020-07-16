@@ -13,19 +13,16 @@ class Utilisateur {
      * @param params.nom
      * @param params.prenom
      * @param params.age
+     * @throws UtilisateurValidatorError
      */
     constructor(params) {
 
-        let validator;
-
         try {
-            validator = new UtilisateurValidator(params);
+            new UtilisateurValidator(params);
         }
         catch (error) {
             throw error;
         }
-
-        this.validator = validator;
 
         const {
             email,
