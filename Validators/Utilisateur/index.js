@@ -1,4 +1,3 @@
-const Utilisateur = require('../../Utilisateur');
 const InvalidEmailError = require('../../Errors/InvalidEmailError');
 const InvalidNomError = require('../../Errors/InvalidNomError');
 const InvalidPrenomError = require('../../Errors/InvalidPrenomError');
@@ -19,7 +18,7 @@ class UtilisateurValidator {
      * @param params.prenom {string} Prenom
      * @param params.age
      */
-    constructor(...params) {
+    constructor(params) {
 
         this.isValid = false;
         this.errors = [];
